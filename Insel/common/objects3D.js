@@ -356,11 +356,63 @@ class Island extends Object3D{
 	}
     this.InitBuffers();
 
-
-
-
-
     }
+}
+
+class River extends Object3D{
+	constructor(){
+		super();
+
+	this.positions = [
+		0.0,  0.0, 14.0, 	 // index 0
+		0.75, 0.0, 12.5, 	 // index 1
+		1.25, 0.0, 12.5, 	 // index 2
+		1.0,  0.0, 11.0, 	 // index 3
+		2.0,  0.0, 11.0, 	 // index 4
+		0.75, 0.0,  9.5, 	 // index 5
+		2.25, 0.0,  9.5, 	 // index 6
+		0.0,  0.0,  8.0, 	 // index 7
+		2.0,  0.0,  8.0, 	 // index 8
+		-2.25, 0.0,  6.1875, // index 9
+		0.25, 0.0,  6.1875, // index 10
+		-3.0,  0.0,  4.0, 	 // index 11
+		0.0,  0.0,  4.0, 	 // index 12
+		-2.25, 0.0,  1.8125, // index 13
+		1.25, 0.0,  1.8125, // index 14
+		0.0,  0.0,  0.0, 	 // index 15
+		4.0,  0.0,  0.0, 	 // index 16
+		0.0, -7.0,  0.0, 	 // index 17 -> additional for waterfall
+		4.0, -6.0,  0.0  	 // index 18 -> additional for waterfall
+	];
+
+   this.indices = [
+		   0, 1, 2,
+		   1, 2, 3,
+		   2, 3, 4,
+		   3, 4, 5,
+		   4, 5, 6,
+		   5, 6, 7,
+		   6, 7, 8,
+		   7, 8, 9,
+		   8, 9, 10,
+		   9, 10, 11,
+		   10, 11, 12,
+		   11, 12, 13,
+		   12, 13, 14,
+		   13, 14, 15,
+		   14, 15, 16,
+		   15, 16, 17, // additional for waterfall
+		   16, 17, 18  // additional for waterfall
+	   ];
+
+   this.colors = [];
+   for(var i = 0; i < this.positions.length; i += 3) {
+	   this.colors.push(0.2, 0.2, 0.8, 1);
+   }
+
+   this.InitBuffers();
+
+	}
 }
 
 
