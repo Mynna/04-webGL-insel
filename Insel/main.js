@@ -1,5 +1,6 @@
 let gl;
 let program;
+let objects=[];
 let positions1,
 	positions2,
 	colors1,
@@ -38,11 +39,10 @@ function main() {
 	// Only clear once
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-	init1();
-	render1();
+	let cube = new Cube();
+	cube.Render();
 
-	init2();
-	render2();
+
 };
 
 function init1() {
