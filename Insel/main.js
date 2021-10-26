@@ -417,10 +417,35 @@ function init2() {
 }
 
 function initBuffers2() {
+
+	posVBO2= gl.createBuffer();
+	gl.bindBuffer(gl.ARRAY_BUFFER,posVBO2);
+	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions2),gl.STATIC_DRAW);
+
+	colorVBO2=gl.createBuffer();
+	gl.bindBuffer(gl.ARRAY_BUFFER, colorVBO2);
+	gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(colors2),gl.STATIC_DRAW);
+
+	indexVBO2=gl.createBuffer();
+	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexVBO2);
+	gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices2),gl.STATIC_DRAW);
+
 	
 }
 
 function render2() {
+	gl.bindBuffer(gl.ARRAY_BUFFER,posVBO2);
+	gl.enableVertexAttribArray(posLoc);
+	gl.vertexAttribPointer(posLoc,3,gl.FLOAT,false,0,0);
+
+	gl.bindBuffer(gl.ARRAY_BUFFER,colorVBO2);
+	gl.enableVertexAttribArray(colorLoc);
+	gl.vertexAttribPointer(colorLoc,4,gl.FLOAT,false,0,0);
+
+	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexVBO2);
+	gl.drawElements(gl.TRIANGLES,indices2.length,gl.UNSIGNED_SHORT,0);
+
+
 
 }
 
